@@ -1,5 +1,8 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * The Schema Object allows the definition of input and output data types. These types can be objects, but also primitives and arrays.
  * This object is a superset of the <i>JSON Schema Specification Draft 2020-12</i>.
@@ -35,6 +38,8 @@ package com.koboldcode.spec;
  * @see <a href="https://spec.commonmark.org/">CommonMark</a>
  * @author Kirk O'Bannon modified, base description from OpenApi Specification
  */
+@Data
+@NoArgsConstructor
 public class SpecSchema {
     /**
      * Adds support for polymorphism. The discriminator is an object name that is used to differentiate between
@@ -50,7 +55,7 @@ public class SpecSchema {
     /**
      * Additional external documentation for this schema.
      */
-    private SpecExtDocs externalDocs;
+    private SpecExternalDocs externalDocs;
     /**
      * A free-form property to include an example of an instance for this schema.
      * To represent examples that cannot be naturally represented in JSON or YAML,

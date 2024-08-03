@@ -1,5 +1,8 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * Defines a security scheme that can be used by the operations.
  * <p>
@@ -13,6 +16,8 @@ package com.koboldcode.spec;
  * @see <a href="https://tools.ietf.org/html/draft-ietf-oauth-security-topics">OAuth 2.0 Security Best Current Practice</a>
  * @author Kirk O'Bannon modified, base description from OpenApi Specification
  */
+@Data
+@NoArgsConstructor
 public class SpecSecurityScheme {
     /**
      * <b>REQUIRED</b>. The type of the security scheme.

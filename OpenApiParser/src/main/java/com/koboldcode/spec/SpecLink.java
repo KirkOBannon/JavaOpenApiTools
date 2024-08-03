@@ -1,5 +1,8 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,12 +17,19 @@ import java.util.Map;
  * For computing links, and providing instructions to execute them, a <i>runtime expression</i> is used for
  * accessing values in an operation and using them as parameters while invoking the linked operation.
  * @see <a href="https://swagger.io/specification/#runtime-expressions">Runtime Expressions</a>
- * @author Kirk O'Bannon modified, base description from OpenApi Specification
+ * <p>
+ * This object MAY be extended with
+ *  <a href="https://swagger.io/specification/#specification-extensions">Specification Extensions.</a>
+ *
+ * @author Kirk O'Bannon, with original documentation from
+ *  <a href="https://swagger.io/specification/#openapi-document">OpenApi Specification</a>
  */
+// TODO: This is complicated. Circle back.
 //A linked operation MUST be identified using either an operationRef or operationId.
 // In the case of an operationId, it MUST be unique and resolved in the scope of the OAS document.
 // Because of the potential for name clashes, the operationRef syntax is preferred for OpenAPI documents with external references.
-public class SpecLink {
+@Data @NoArgsConstructor
+public class SpecLink extends SpecExtensions {
     /**
      * A relative or absolute URI reference to an OAS operation.
      * This field is mutually exclusive of the <code>operationId</code> field, and MUST point to an <i>Operation Object</i>.

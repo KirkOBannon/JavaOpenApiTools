@@ -1,5 +1,8 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +13,8 @@ import java.util.Map;
  * @see <a href="https://swagger.io/specification/#specification-extensions">Specification Extensions</a>
  * @author Kirk O'Bannon modified, base description from OpenApi Specification
  */
+@Data
+@NoArgsConstructor
 public class SpecRequestBody {
     /**
      * A brief description of the request body. This could contain examples of use.

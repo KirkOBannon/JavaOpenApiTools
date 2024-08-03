@@ -1,39 +1,45 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Each Media Type Object provides schema and examples for the media type identified by its key.
- * @author Kirk O'Bannon modified, base description from OpenApi Specification
+ * <p>
+ * This object MAY be extended with
+ *  <a href="https://swagger.io/specification/#specification-extensions">Specification Extensions.</a>
+ *
+ * @author Kirk O'Bannon, with original documentation from
+ *  <a href="https://swagger.io/specification/#openapi-document">OpenApi Specification</a>
  */
-// TODO: Include the considerations for multipart, file uploads, etc.
-public class SpecMediaType {
+@Data @NoArgsConstructor
+public class SpecMediaType extends SpecExtensions {
     /**
      * The schema defining the content of the request, response, or parameter.
      */
     private SpecSchema schema;
     /**
      * Example of the media type. The example object SHOULD be in the correct format as specified by the media type.
-     * The <code>example</code> field is mutually exclusive of the <code>examples</code> field.
-     * Furthermore, if referencing a schema which contains an <code>example</code>,
-     * the example value SHALL <i>override</i> the example provided by the schema.
+     * This field is mutually exclusive of the {@link SpecMediaType#examples} field.
+     * Furthermore, if referencing a {@link SpecMediaType#schema} which contains an {@link SpecSchema#example},
+     * this value SHALL <i>override</i> the example provided by the referenced schema.
      */
     private byte[] example;
     /**
      * Examples of the media type. Each example object SHOULD match the media type and specified schema if present.
-     * The <code>examples</code> field is mutually exclusive of the <code>example</code> field.
-     * Furthermore, if referencing a schema which contains an <code>example</code>,
-     * the <code>examples</code> value SHALL <i>override</i> the example provided by the schema.
+     * This field is mutually exclusive of the {@link SpecMediaType#example} field.
+     * Furthermore, if referencing a schema which contains an {@link SpecSchema#example},
+     * this value SHALL <i>override</i> the example provided by the referenced schema.
      */
-    // TODO:
     private Map<String, byte[]> examples = new HashMap<>();
     /**
      * A map between a property name and its encoding information.
      * The key, being the property name, MUST exist in the schema as a property.
-     * The encoding object SHALL only apply to <code>requestBody</code> objects
-     * when the media type is <code>multipart</code> or <code>application/x-www-form-urlencoded</code>.
+     * The encoding object SHALL only apply to {@link SpecRequestBody} objects
+     * when the media type is {@code multipart} or {@code application/x-www-form-urlencoded}.
      */
-    // TODO :
-    private Map<String, byte[]> encoding = new HashMap<>();
+    private Map<String, SpecEncoding> encoding = new HashMap<>();
 }

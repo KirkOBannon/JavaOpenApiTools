@@ -1,5 +1,8 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +18,8 @@ import java.util.Map;
  * only one of the Security Requirement Objects in the list needs to be satisfied to authorize the request.
  * @author Kirk O'Bannon modified, base description from OpenApi Specification
  */
+@Data
+@NoArgsConstructor
 public class SpecSecurityRequirement {
     /**
      * Each name MUST correspond to a security scheme which is declared in the

@@ -1,15 +1,20 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.HashMap;
 
 /**
  * Holds the relative paths to the individual endpoints and their operations.
- * The path is appended to the URL from the {@link DocServers} object in order to construct the full URL.
+ * The path is appended to the URL from the {@link SpecServer} object in order to construct the full URL.
  * The Paths MAY be empty, due to <i>ACL constraints</i>.
  * @see <a href="https://swagger.io/specification/v3/#security-filtering">ACL constraints</a>
  * @author Kirk O'Bannon modified, base description from OpenApi Specification
  */
-public class DocPaths extends HashMap<String, DocPath> {
+@Data
+@NoArgsConstructor
+public class SpecPaths extends HashMap<String, SpecPath> {
     // TODO: Javadoc and update regarding the put and get functions
     // A relative path to an individual endpoint.
     // The field name MUST begin with a forward slash (/).

@@ -1,5 +1,8 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +16,8 @@ import java.util.Map;
  * The Responses Object MUST contain at least one response code, and if only one response code is provided it SHOULD be the response for a successful operation call.
  * @author Kirk O'Bannon modified, base description from OpenApi Specification
  */
+@Data
+@NoArgsConstructor
 public class SpecResponses {
     /**
      * The documentation of responses other than the ones declared for specific HTTP response codes.

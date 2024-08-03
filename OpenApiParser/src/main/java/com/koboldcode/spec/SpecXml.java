@@ -1,5 +1,8 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * A metadata object that allows for more fine-tuned XML model definitions.
  * <p>
@@ -7,6 +10,8 @@ package com.koboldcode.spec;
  * SHOULD be used to add that information. See examples for expected behavior.
  * @author Kirk O'Bannon modified, base description from OpenApi Specification
  */
+@Data
+@NoArgsConstructor
 public class SpecXml {
     /**
      * Replaces the name of the element/attribute used for the described schema property.

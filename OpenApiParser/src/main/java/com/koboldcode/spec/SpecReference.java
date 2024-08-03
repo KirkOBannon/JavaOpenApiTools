@@ -1,5 +1,8 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * A simple object to allow referencing other components in the OpenAPI document, internally and externally.
  * <p>
@@ -8,6 +11,8 @@ package com.koboldcode.spec;
  * @see <a href="https://swagger.io/specification/#relative-references-in-uris">Relative References</a>
  * @author Kirk O'Bannon modified, base description from OpenApi Specification
  */
+@Data
+@NoArgsConstructor
 public class SpecReference {
     /**
      * <b>REQUIRED</b>. The reference identifier. This MUST be in the form of a URI.

@@ -15,6 +15,8 @@
 
         <lombok.version>1.18.32</lombok.version>
         <jackson.version>2.17.0</jackson.version>
+        <guice.version>7.0.0</guice.version>
+        <testng.version>7.10.2</testng.version>
     </properties>
 
     <dependencies>
@@ -56,6 +58,20 @@
             <version>${jackson.version}</version>
         </dependency>
 
+        <!-- Dependency Injection -->
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>${guice.version}</version>
+        </dependency>
+
+        <!-- Test Scope Dependencies -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 

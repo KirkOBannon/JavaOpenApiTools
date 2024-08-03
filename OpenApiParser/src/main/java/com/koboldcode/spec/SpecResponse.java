@@ -1,5 +1,8 @@
 package com.koboldcode.spec;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +10,8 @@ import java.util.Map;
  * Describes a single response from an API Operation, including design-time, static <code>links</code> to operations based on the response.
  * @author Kirk O'Bannon modified, base description from OpenApi Specification
  */
+@Data
+@NoArgsConstructor
 public class SpecResponse {
     /**
      * <b>REQUIRED</b>. A description of the response. <i>CommonMark syntax</i> MAY be used for rich text representation.
