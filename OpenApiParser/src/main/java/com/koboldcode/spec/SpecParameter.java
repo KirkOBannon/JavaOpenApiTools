@@ -28,7 +28,7 @@ import java.util.Map;
  *  <a href="https://swagger.io/specification/#openapi-document">OpenApi Specification</a>
  */
 @Data @NoArgsConstructor
-public class SpecParameter {
+public class SpecParameter extends SpecExtensions {
     /**
      * <b>REQUIRED.</b> The name of the parameter. Parameter names are case-sensitive.
      * <li>If {@link SpecParameter#in} is {@code "path"}, the {@link SpecParameter#name} field MUST correspond to a
@@ -77,8 +77,10 @@ public class SpecParameter {
      * | header   | simple  |
      * | cookie   | form    |
      *</pre>
+     *
+     * @see <a href="https://swagger.io/docs/specification/serialization/">OpenApi Serialization</a>
      */
-    private String style;
+    private SpecParamStyle style;
     /**
      * When this is {@code true}, parameter values of type {@code array} or {@code object} generate
      *  separate parameters for each value of the array or key-value pair of the map.
@@ -100,19 +102,19 @@ public class SpecParameter {
      */
     private SpecSchema schema;
     /**
-     * Example of the parameter's potential value. The example SHOULD match the specified schema and encoding
-     *  properties if present. The {@code example} field is mutually exclusive of the {@code examples} field.
-     *  Furthermore, if referencing a <code>schema</code> that contains an example,
-     *  the {@code example} value SHALL <i>override</i> the example provided by the schema.
+     * Example of the parameter's potential value. This field SHOULD match the specified schema and encoding
+     *  properties if present. This field is mutually exclusive of the {@link SpecParameter#examples} field.
+     *  Furthermore, if {@link SpecParameter#schema} contains an example,
+     *  this value SHALL <i>override</i> the example provided by the schema.
      *  To represent examples of media types that cannot naturally be represented in JSON or YAML,
      *  a string value can contain the example with escaping where necessary.
      */
     private byte[] example;
     /**
-     * Examples of the parameter's potential value. Each example SHOULD contain a value in the correct format as
-     *  specified in the parameter encoding. The {@code examples} field is mutually exclusive of the {@code example}
-     *  field. Furthermore, if referencing a <code>schema</code> that contains an example, the <code>example</code>
-     *  value SHALL <i>override</i> the example provided by the schema.
+     * Examples of the parameter's potential value. Each example contained in this field  SHOULD contain a value in the
+     *  correct format as specified in the parameter encoding. This field is mutually exclusive of the
+     *  {@link SpecParameter#example} field. Furthermore, if {@link SpecParameter#schema} contains an example,
+     *  this value SHALL <i>override</i> the example provided by the schema.
      */
     private Map<String, byte[]> examples = new HashMap<>();
     /**
@@ -132,6 +134,52 @@ public class SpecParameter {
 
         private final String value;
         SpecParamIn(String val) {
+            this.value = val;
+        }
+    }
+    /**
+     * Enum for {@link SpecParameter#style}.
+     * In order to support common ways of serializing simple parameters, a set of style values are defined.
+     *
+     * @see <a href="https://swagger.io/docs/specification/serialization/">OpenApi Serialization</a>
+     */
+    public enum SpecParamStyle {
+        /**
+         * Path-style parameters defined by <a href="https://tools.ietf.org/html/rfc6570#section-3.2.7">RFC6570</a>
+         */
+        MATRIX("matrix"),
+        /**
+         * Path-style parameters defined by <a href="https://tools.ietf.org/html/rfc6570#section-3.2.5">RFC6570</a>
+         */
+        LABEL("label"),
+        /**
+         * Path-style parameters defined by <a href="https://tools.ietf.org/html/rfc6570#section-3.2.8">RFC6570</a>
+         *  This option replaces {@code collectionFormat} with a {@code csv} (when explode is {@code false}) or
+         *  {@code multi} (when explode is {@code true}) value from OpenAPI 2.0.
+         */
+        FORM("form"),
+        /**
+         * Simple style parameters defined by <a href="https://tools.ietf.org/html/rfc6570#section-3.2.2">RFC6570</a>.
+         *  This option replaces {@code collectionFormat} with a {@code csv} from OpenAPI 2.0.
+         */
+        SIMPLE("simple"),
+        /**
+         * Space separated array or object values.
+         *  This option replaces {@code collectionFormat} with a {@code ssv} from OpenAPI 2.0.
+         */
+        SPACE_DELIMITED("spaceDelimited"),
+        /**
+         * Pipe separated array or object values.
+         *  This option replaces {@code collectionFormat} with a {@code pipes} from OpenAPI 2.0.
+         */
+        PIPE_DELIMITED("pipeDelimited"),
+        /**
+         * Provides a simple way of rendering nested objects using form parameters.
+         */
+        DEEP_OBJECT("deepObject");
+
+        private final String value;
+        SpecParamStyle(String val) {
             this.value = val;
         }
     }
