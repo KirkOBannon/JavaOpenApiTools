@@ -28,7 +28,7 @@ public class SpecResponse extends SpecExtensions {
      *  states header names are case-insensitive. If a response header is defined with the name
      *  {@code "Content-Type"}, it SHALL be ignored.
      */
-    private Map<String, SpecHeader> headers = new HashMap<>();
+    private Map<String, SpecRefOrVal<SpecHeader>> headers = new HashMap<>();
     /**
      * A map containing descriptions of potential response payloads.
      *  The key is a media type or <a href="https://tools.ietf.org/html/rfc7231#appendix--d">Media Type Range</a>
@@ -42,5 +42,5 @@ public class SpecResponse extends SpecExtensions {
      *  The key of the map is a short name for the link,
      *  following the naming constraints of the names for {@link SpecComponents}.
      */
-    private Map<String, SpecLink> links = new HashMap<>();
+    private Map<String, SpecRefOrVal<SpecLink>> links = new HashMap<>();
 }

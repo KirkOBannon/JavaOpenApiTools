@@ -52,11 +52,13 @@ public class SpecLink extends SpecExtensions {
      * for operations that use the same parameter name in different locations (e.g. path.id).
      * @see <a href="https://swagger.io/specification/#parameter-in">Parameter Location</a>
      */
+    // TODO: {expression} support for these objects?
     private Map<String, byte[]> parameters = new HashMap<>();
     /**
      * A literal value or <i>{expression}</i> to use as a request body when calling the target operation.
      * @see <a href="https://swagger.io/specification/#runtime-expressions">Runtime Expression</a>
      */
+    // TODO: {expression} support for these objects?
     private byte[] requestBody;
     /**
      * A description of the link. <i>CommonMark syntax</i> MAY be used for rich text representation.

@@ -32,7 +32,7 @@ public class SpecEncoding extends SpecExtensions {
      *  {@code Content-Type} is described separately and SHALL be ignored in this section.
      *  This property SHALL be ignored if the request body media type is not a {@code multipart}
      */
-    private Map<String, Object> headers = new HashMap<>();
+    private Map<String, SpecRefOrVal<SpecHeader>> headers = new HashMap<>();
     /**
      * Describes how a specific property value will be serialized depending on its type.
      *  See {@link SpecParameter} object for details on this property.

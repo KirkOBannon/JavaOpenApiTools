@@ -116,7 +116,7 @@ public class SpecParameter extends SpecExtensions {
      *  {@link SpecParameter#example} field. Furthermore, if {@link SpecParameter#schema} contains an example,
      *  this value SHALL <i>override</i> the example provided by the schema.
      */
-    private Map<String, byte[]> examples = new HashMap<>();
+    private Map<String, SpecRefOrVal<byte[]>> examples = new HashMap<>();
     /**
      * A map containing the representations for the parameter.
      * The key is the media type and the value describes it. The map MUST only contain one entry.

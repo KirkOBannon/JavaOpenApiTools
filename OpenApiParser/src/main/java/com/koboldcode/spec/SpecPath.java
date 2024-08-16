@@ -82,5 +82,5 @@ public class SpecPath extends SpecExtensions {
      *  to link to parameters that are defined at the
      *  <a href="https://swagger.io/specification/#components-parameters">OpenAPI Object's components/parameters</a>.
      */
-    private List<SpecParameter> parameters;
+    private List<SpecRefOrVal<SpecParameter>> parameters;
 }

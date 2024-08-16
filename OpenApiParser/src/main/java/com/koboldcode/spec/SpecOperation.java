@@ -51,7 +51,7 @@ public class SpecOperation extends SpecExtensions {
      *  The list can use the {@link SpecReference} Object to link to parameters that are defined at
      *  the OpenAPI Object's <i>components/parameters.</i>
      */
-    private List<SpecParameter> parameters;
+    private List<SpecRefOrVal<SpecParameter>> parameters;
     /**
      * The request body applicable for this operation.
      *  The requestBody is fully supported in HTTP methods where the HTTP 1.1 specification
@@ -59,7 +59,7 @@ public class SpecOperation extends SpecExtensions {
      *  request bodies. In other cases where the HTTP spec is vague (such as GET, HEAD and DELETE),
      *  {@code requestBody} is permitted but does not have well-defined semantics and SHOULD be avoided if possible.
      */
-    private List<SpecRequestBody> requestBody;
+    private List<SpecRefOrVal<SpecRequestBody>> requestBody;
     /**
      * The list of possible responses as they are returned from executing this operation.
      */
@@ -70,7 +70,7 @@ public class SpecOperation extends SpecExtensions {
      *  Each value in the map is a {@link SpecCallback} Object that describes a request that may be initiated by the
      *  API provider and the expected responses.
      */
-    private Map<String, SpecCallback> callbacks;
+    private Map<String, SpecRefOrVal<SpecCallback>> callbacks;
     /**
      * Declares this operation to be deprecated. Consumers SHOULD refrain from usage of the declared operation.
      *  Default value is false.

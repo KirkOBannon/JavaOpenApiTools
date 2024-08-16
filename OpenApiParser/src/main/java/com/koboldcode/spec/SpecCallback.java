@@ -3,6 +3,9 @@ package com.koboldcode.spec;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * A map of possible out-of band callbacks related to the parent operation. Each value in the map is a
  *  {@link SpecPath} that describes a set of requests that may be initiated by the API provider and the
@@ -20,5 +23,9 @@ import lombok.NoArgsConstructor;
  */
 @Data @NoArgsConstructor
 public class SpecCallback extends SpecExtensions {
-    // TODO
+    /**
+     * A Path Item Object, or a reference to one, used to define a callback request and expected responses.
+     * @see <a href="https://github.com/-o-a-i/-open-a-p-i--specification/blob/main/examples/v3.0/callback-example.yaml">Complete Example</a>
+     */
+    Map<String, SpecRefOrVal<SpecPath>> callbacks = new HashMap<>();
 }

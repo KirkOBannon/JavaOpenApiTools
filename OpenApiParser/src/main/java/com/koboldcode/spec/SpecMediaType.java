@@ -34,7 +34,7 @@ public class SpecMediaType extends SpecExtensions {
      * Furthermore, if referencing a schema which contains an {@link SpecSchema#example},
      * this value SHALL <i>override</i> the example provided by the referenced schema.
      */
-    private Map<String, byte[]> examples = new HashMap<>();
+    private Map<String, SpecRefOrVal<byte[]>> examples = new HashMap<>();
     /**
      * A map between a property name and its encoding information.
      * The key, being the property name, MUST exist in the schema as a property.

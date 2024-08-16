@@ -31,7 +31,7 @@ public class SpecResponses extends SpecExtensions {
      * The documentation of responses other than the ones declared for specific HTTP response codes.
      * Use this field to cover undeclared responses.
      */
-    public SpecResponse _default;
+    public SpecRefOrVal<SpecResponse> _default;
     /**
      * This map contains Patterned Fields.
      * <p>
@@ -48,5 +48,5 @@ public class SpecResponses extends SpecExtensions {
      * If a response is defined using an explicit code,
      *  the explicit code definition takes precedence over the range definition for that code.
      */
-    public Map<String, SpecResponse> responseCodeMap = new HashMap<>();
+    public Map<String, SpecRefOrVal<SpecResponse>> responseCodeMap = new HashMap<>();
 }

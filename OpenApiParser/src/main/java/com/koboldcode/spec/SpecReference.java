@@ -1,5 +1,6 @@
 package com.koboldcode.spec;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ import java.net.URI;
  *  <a href="https://swagger.io/specification/#openapi-document">OpenApi Specification</a>
  */
 @Data @NoArgsConstructor
-public class SpecReference {
+public class SpecReference<T> extends SpecRefOrVal<T> {
     /**
      * <b>REQUIRED</b>. The reference identifier. This MUST be in the form of a URI.
      */

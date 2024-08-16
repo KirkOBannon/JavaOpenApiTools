@@ -54,7 +54,7 @@ public class OpenApiDoc extends SpecExtensions {
      *  webhook, while the (optionally referenced) {@link SpecPath} Item Object describes a request that may be
      *  initiated by the API provider and the expected responses.
      */
-    private Map<String, SpecPath> webhooks;
+    private Map<String, SpecRefOrVal<SpecPath>> webhooks;
     /**
      * An element to hold various schemas for the document.
      */

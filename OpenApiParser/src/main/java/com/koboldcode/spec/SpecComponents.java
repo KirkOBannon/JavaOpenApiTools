@@ -25,37 +25,37 @@ public class SpecComponents extends SpecExtensions {
     /**
      * An object to hold reusable {@link SpecResponse} Objects.
      */
-    private Map<String, SpecResponse> responses;
+    private Map<String, SpecRefOrVal<SpecResponse>> responses;
     /**
      * An object to hold reusable {@link SpecParameter} Objects.
      */
-    private Map<String, SpecParameter> parameters;
+    private Map<String, SpecRefOrVal<SpecParameter>> parameters;
     /**
      * An object to hold reusable {@link SpecExample} Objects.
      */
-    private Map<String, SpecExample> examples;
+    private Map<String, SpecRefOrVal<SpecExample>> examples;
     /**
      * An object to hold reusable {@link SpecRequestBody} Objects.
      */
-    private Map<String, SpecRequestBody> requestBodies;
+    private Map<String, SpecRefOrVal<SpecRequestBody>> requestBodies;
     /**
      * An object to hold reusable {@link SpecHeader} Objects.
      */
-    private Map<String, SpecHeader> headers;
+    private Map<String, SpecRefOrVal<SpecHeader>> headers;
     /**
      * An object to hold reusable {@link SpecSecurityScheme} Objects.
      */
-    private Map<String, SpecSecurityScheme> securitySchemes;
+    private Map<String, SpecRefOrVal<SpecSecurityScheme>> securitySchemes;
     /**
      * An object to hold reusable {@link SpecLink} Objects.
      */
-    private Map<String, SpecLink> links;
+    private Map<String, SpecRefOrVal<SpecLink>> links;
     /**
      * An object to hold reusable {@link SpecCallback} Objects.
      */
-    private Map<String, SpecCallback> callbacks;
+    private Map<String, SpecRefOrVal<SpecCallback>> callbacks;
     /**
      * An object to hold reusable {@link SpecPath} Item Object.
      */
-    private Map<String, SpecPath> pathItems;
+    private Map<String, SpecRefOrVal<SpecPath>> pathItems;
 }
