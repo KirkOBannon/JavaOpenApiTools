@@ -6,19 +6,23 @@ import lombok.NoArgsConstructor;
 /**
  * A metadata object that allows for more fine-tuned XML model definitions.
  * <p>
- * When using arrays, XML element names are not inferred (for singular/plural forms) and the <code>name</code> property
- * SHOULD be used to add that information. See examples for expected behavior.
- * @author Kirk O'Bannon modified, base description from OpenApi Specification
+ * When using arrays, XML element names are not inferred (for singular/plural forms) and the {@link SpecXml#name}
+ *  property SHOULD be used to add that information. See examples for expected behavior.
+ * <p>
+ * This object MAY be extended with
+ *  <a href="https://swagger.io/specification/#specification-extensions">Specification Extensions.</a>
+ *
+ * @author Kirk O'Bannon, with original documentation from
+ *  <a href="https://swagger.io/specification/#openapi-document">OpenApi Specification</a>
  */
-@Data
-@NoArgsConstructor
-public class SpecXml {
+@Data @NoArgsConstructor
+public class SpecXml extends SpecExtensions {
     /**
      * Replaces the name of the element/attribute used for the described schema property.
-     * When defined within <code>items</code>, it will affect the name of the individual XML elements within the list.
-     * When defined alongside <code>type</code> being <code>array</code> (outside the <code>items</code>),
-     * it will affect the wrapping element and only if <code>wrapped</code> is <code>true</code>.
-     * If <code>wrapped</code> is <code>false</code>, it will be ignored.
+     * When defined within {@code items}, it will affect the name of the individual XML elements within the list.
+     * When defined alongside {@code type} being {@code array} (outside the {@code items}),
+     * it will affect the wrapping element and only if {@code wrapped} is {@code true}.
+     * If {@code wrapped} is {@code false}, it will be ignored.
      */
     private String name;
     /**
@@ -35,9 +39,9 @@ public class SpecXml {
     private Boolean attribute = false;
     /**
      * MAY be used only for an array definition. Signifies whether the array is wrapped
-     * (for example, <code>&lt;books&gt;&lt;book/&gt;&lt;book/&gt;&lt;/books&gt;</code>) or unwrapped (<code>&lt;book/&gt;&lt;book/&gt;</code>).
-     * Default value is <code>false</code>. The definition takes effect only when defined alongside
-     * <code>type</code> being <code>array</code> (outside the <code>items</code>).
+     * (for example, {@code <books><book/><book/></books>}) or unwrapped ({@code <book/><book/>}).
+     * Default value is {@code false}. The definition takes effect only when defined alongside
+     * {@code type} being {@code array} (outside the {@code items}).
      */
     private Boolean wrapped;
 }
